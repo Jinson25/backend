@@ -15,9 +15,14 @@ app.use('/books', bookRoutes);
 
 
 //conexion a base de datos
-sequelize.sync().then(() => {
+sequelize
+  .sync()
+  .then(() => {
     app.listen(PORT, () => {
       console.log(`Servidor en funcionamiento en http://localhost:${PORT}`);
     });
+  })
+  .catch((error) => {
+    console.error('Error al conectar con la base de datos:', error.message);
+    // Puedes realizar acciones adicionales aquí, como cerrar el servidor o enviar alertas.
   });
-
