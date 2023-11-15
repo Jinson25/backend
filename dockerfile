@@ -1,6 +1,6 @@
-FROM node:12
+FROM node:20
 
-WORKDIR /grupo2
+WORKDIR /app
 
 COPY package*.json ./
 
@@ -8,4 +8,4 @@ RUN npm install
 
 COPY . .
 
-CMD [ "npm", "start" ]
+CMD ["npm","start"]
